@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplex Method Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/fraction.js@4.2.0/fraction.min.js"></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Linear Programming</p>
+                <h1 class="hero-title">The Simplex Method</h1>
+                <p class="hero-subtitle">Visualize each tableau, pivot choice, and ratio test in a clean step-by-step flow.</p>
+            </div>
+            <div class="hero-glow"></div>
+        </header>
+
+        <main class="container pb-5">
+            <div class="card form-card shadow-sm">
+                <div class="card-header text-white form-card__header">
+                    <h5 class="mb-0">Problem Setup</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <label class="form-label">Goal</label>
+                            <select id="optType" class="form-select">
+                                <option value="MAX">Maximize (Max)</option>
+                                <option value="MIN">Minimize (Min)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-10">
+                            <label class="form-label">Objective coefficients (comma-separated, e.g. 7, 6 or -6, 7, 4)</label>
+                            <input type="text" id="objFunc" class="form-control" value="7, 6" placeholder="c1, c2, c3...">
+                        </div>
+                    </div>
+                    
+                    <label class="form-label">Constraints (coefficients, sign, RHS)</label>
+                    <div id="constraints-container">
+                        <!-- Ràng buộc sẽ được thêm vào đây bằng JS -->
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="addConstraintRow()">+ Add constraint</button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="removeConstraintRow()">- Remove constraint</button>
+                    </div>
+                    
+                    <div class="divider"></div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button id="start-btn" class="btn btn-accent flex-grow-1">Start</button>
+                        <button id="step-btn" class="btn btn-outline-primary">Next Step</button>
+                        <button id="auto-btn" class="btn btn-outline-dark">Auto Play</button>
+                        <button id="reset-btn" class="btn btn-outline-danger">Reset</button>
+                        <select id="speed-select" class="form-select speed-select" aria-label="Auto play speed">
+                            <option value="1400">Slow</option>
+                            <option value="900" selected>Normal</option>
+                            <option value="500">Fast</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legend mt-4">
+                <div class="legend-item"><span class="legend-swatch pivot-col"></span>Pivot column</div>
+                <div class="legend-item"><span class="legend-swatch pivot-row"></span>Pivot row</div>
+                <div class="legend-item"><span class="legend-swatch pivot-element"></span>Pivot element</div>
+                <div class="legend-item"><span class="legend-swatch cj-zj-row"></span>Cj - Zj row</div>
+            </div>
+
+            <div id="solution-container" class="steps">
+                <!-- Các bước giải sẽ hiển thị ở đây -->
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

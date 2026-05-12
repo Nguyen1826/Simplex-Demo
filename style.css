@@ -1,0 +1,315 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #1b2132;
+    --ink-soft: #3b4256;
+    --accent: #b0481f;
+    --accent-dark: #803518;
+    --navy: #1d2a52;
+    --table-line: #2d4a8a;
+    --paper: #ffffff;
+    --mist: #f3f5f8;
+    --glow: rgba(176, 72, 31, 0.15);
+}
+
+body {
+    margin: 0;
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top left, #f9eee9 0%, #f6f3f2 35%, #edf1f8 100%);
+    min-height: 100vh;
+}
+
+.page-shell {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(var(--glow) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.hero {
+    position: relative;
+    padding: 48px 8vw 24px;
+    text-align: left;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.hero-eyebrow {
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+    font-size: 0.8rem;
+}
+
+.hero-title {
+    font-family: "Fraunces", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    margin: 0 0 12px;
+    color: var(--navy);
+}
+
+.hero-subtitle {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+}
+
+.hero-glow {
+    position: absolute;
+    right: -120px;
+    top: -100px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(45, 74, 138, 0.2), transparent 65%);
+    filter: blur(2px);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.form-card {
+    border-radius: 18px;
+    border: none;
+    background: var(--paper);
+    overflow: hidden;
+}
+
+.form-card__header {
+    background: linear-gradient(120deg, var(--navy), #1c3b6e);
+    font-weight: 600;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.divider {
+    height: 1px;
+    background: #e2e6ef;
+    margin: 18px 0;
+}
+
+.btn-accent {
+    background: linear-gradient(120deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 12px 18px;
+    box-shadow: 0 12px 20px rgba(176, 72, 31, 0.25);
+}
+
+.btn-accent:hover {
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.speed-select {
+    max-width: 140px;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+    margin-top: 24px;
+}
+
+.table-simplex {
+    width: max-content;
+    min-width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-collapse: collapse;
+    font-family: "Fraunces", "Times New Roman", serif;
+}
+
+.table-simplex th, .table-simplex td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 16px;
+    border: 1px solid #d7dbe6;
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.table-simplex thead th {
+    color: var(--navy);
+    border-bottom: 2px solid var(--table-line);
+}
+
+.table-simplex thead .cj-head {
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: #f1f4fb;
+}
+
+.table-simplex tbody th {
+    color: #0f6a45;
+    font-weight: 600;
+}
+
+/* Đường kẻ phân cách */
+.border-right-thick {
+    border-right: 2px solid var(--table-line) !important;
+}
+.border-left-thick {
+    border-left: 2px solid var(--table-line) !important;
+}
+.border-top-thick {
+    border-top: 2px solid var(--table-line) !important;
+}
+.border-bottom-thick {
+    border-bottom: 2px solid var(--table-line) !important;
+}
+
+/* Highlight quy trình chọn Pivot */
+.pivot-col {
+    background-color: #ffe8e0 !important;
+    border-left: 2px solid #c2461b !important;
+    border-right: 2px solid #c2461b !important;
+}
+
+.pivot-row {
+    background-color: #ffe8e0 !important;
+    border-top: 2px solid #c2461b !important;
+    border-bottom: 2px solid #c2461b !important;
+}
+
+.pivot-element {
+    font-weight: 700;
+    color: #c2461b;
+    background-color: #ffd4c7 !important;
+    border: 2px solid #c2461b !important;
+    border-radius: 999px;
+    padding: 4px 8px;
+    display: inline-block;
+    min-width: 42px;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+/* Highlight Cj-Zj */
+.cj-zj-row {
+    background-color: #fff6c7;
+    font-weight: 700;
+}
+
+.step-card {
+    border-left: 6px solid var(--navy);
+    margin-bottom: 30px;
+    border-radius: 18px;
+    background: var(--paper);
+    animation: floatIn 520ms ease both;
+}
+
+.step-title {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.ratio-cell {
+    color: #c2461b;
+    font-weight: 600;
+}
+
+.pivot-ratio {
+    background: rgba(194, 70, 27, 0.12);
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: inline-block;
+}
+
+.pivot-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #f7f2ee;
+    border-radius: 12px;
+}
+
+.conversion-note {
+    color: #8b3a1b;
+    font-weight: 600;
+}
+
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(194, 70, 27, 0.35);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(194, 70, 27, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 36px 6vw 16px;
+    }
+    .table-simplex th, .table-simplex td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    .legend {
+        font-size: 0.85rem;
+    }
+}
